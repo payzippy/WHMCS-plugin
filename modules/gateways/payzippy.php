@@ -54,7 +54,7 @@ function payzippy_link($params) {
 
     # Enter your code submit to the gateway...
 
-    $code = '<form method = "post" action = "https://staging.flipkartpayments.net/payment/api/charging/v1" >
+    $code = '<form method = "post" action = "https://www.payzippy.com/payment/api/charging/v1" >
 <input type="hidden" name="buyer_email_address" value="' . $request_params['buyer_email_address'] . '">
 <input type="hidden" name="billing_name" value="' . $request_params['billing_name'] . '" />
 <input type="hidden" name="shipping_address" value="' . $request_params['shipping_address'] . '" />
