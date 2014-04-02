@@ -14,7 +14,7 @@ function payzippy_config() {
 }
 
 function payzippy_link($params) {
-    $my_config = new Config();
+    //$my_config = new Config();
 
     # Gateway Specific Variables
     $amount = $params['amount']; # Format: ##.##
@@ -37,13 +37,13 @@ function payzippy_link($params) {
             ->set_shipping_zip($params['clientdetails']['postcode'])
             ->set_shipping_country($params['clientdetails']['country'])
             ->set_buyer_phone_no($params['clientdetails']['phonenumber'])
-            ->set_ui_mode($my_config::UI_MODE)
-            ->set_transaction_type($my_config::TRANSACTION_TYPE)
-            ->set_hash_method($my_config::HASH_METHOD)
-            ->set_source($my_config::SOURCE)
+            ->set_ui_mode(Config::UI_MODE)
+            ->set_transaction_type(Config::TRANSACTION_TYPE)
+            ->set_hash_method(Config::HASH_METHOD)
+            ->set_source(Config::SOURCE)
             ->set_callback_url($params['systemurl'] . '/modules/gateways/callback/payzippy.php')
             ->set_udf1($params['systemurl'])
-            ->set_payment_method($my_config::PAYMENT_METHOD);
+            ->set_payment_method(Config::PAYMENT_METHOD);
     $wh_charging->charge();
     $request_params = $wh_charging->get_params();
 #add source and other details ...

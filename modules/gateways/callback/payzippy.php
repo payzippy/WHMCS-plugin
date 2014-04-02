@@ -30,8 +30,8 @@ function generate_hash($request_params, $secret_key) {
 
     $hash_string = $hash_string . $secret_key;
 
-    $my_config = new Config();
-    return hash($my_config::HASH_METHOD, $hash_string);
+    //$my_config = new Config();
+    return hash(Config::HASH_METHOD, $hash_string);
 }
 
 # Get Returned Variables - Adjust for Post Variable Names from your Gateway's Documentation
