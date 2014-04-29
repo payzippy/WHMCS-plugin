@@ -14,8 +14,7 @@ $secret_key = $GATEWAY["secretkey"];
 if (!$GATEWAY["type"])
     die("Module Not Activated");# Checks gateway module is active before accepting callback
 
-$request_params = $_GET;
-unset($_GET);
+$request_params = array_merge($_POST, $_GET);
 
 $hash_received = $request_params['hash'];
 $hash_calculated = generate_hash($request_params, $secret_key);
